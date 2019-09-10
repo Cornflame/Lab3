@@ -9,11 +9,15 @@
 
 <script>
     
+    console.log('The script was loaded')
 	let button=document.querySelector('button')
 
 	button.addEventListener('click', function(){
 		alert('You just clicked the button!')
-	})
+		button.innerHTML = 'This button has been clicked!'
+		button.style.background='CadetBlue'
+		button.width=1000
+			})
 
 </script>
 
