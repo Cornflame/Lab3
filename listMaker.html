@@ -7,25 +7,63 @@
 
 	<h1>Enter some text to add to the list:</h1><br>
 
+	<!--Text field and buttons-->
 	<input type="text" id="text-field">
 	<button id="add-button">Add</button>
+	<button id="clear">Clear</button>
 
+	<!--Empty List-->
 	<ul id="list">
 		
 	</ul>
 
 	<script type="text/javascript">
-		
-		let inputField=document.querySelector('#text-field')
-		let add=document.querySelector('#add-button')
-		let list=document.querySelector('#list')
 
+		//Text field
+		let inputField=document.querySelector('#text-field')
+		//Add button
+		let add=document.querySelector('#add-button')
+		//List
+		let list=document.querySelector('#list')
+		//Clear button
+		let clearButton=document.querySelector('#clear')
+		//List item limit
+		let limit=0
+
+		//Add button
 		add.addEventListener('click',function(){
+			//Take the written input
 			let item=inputField.value
-			let newListItem=document.createElement('li')
-			newListItem.innerHTML=item
-			list.appendChild(newListItem)
-			inputField.value=''
+			//If there are fewer than ten items in the list already
+			if(limit<=9){
+				//If item isn't empty
+				if(item!==''){
+					//If there are fewer than 50 characters
+					if(item.length<=50){
+						//Create list item
+						let newListItem=document.createElement('li')
+						//Give the list item the input
+						newListItem.innerHTML=item
+						//Append list item to list
+						list.appendChild(newListItem)
+						//Reset text box to be empty
+						inputField.value=''
+						//Tell the system the number of written items has increased
+						limit+=1
+					}else{
+						//Error message
+						alert('Error: You must use fewer than 50 characters')
+					}
+				}
+			}
+		})
+
+		//Clear button
+		clearButton.addEventListener('click',function(){
+			//Clear list
+			list.innerHTML=''
+			//Reset limit
+			limit=0
 		})
 
 	</script>
