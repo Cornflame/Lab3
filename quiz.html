@@ -7,19 +7,27 @@
 <body>
 	<p>What was the first American satelite to reach orbit?</p>
 
-	<button>Apollo 1</button>
-	<button>Sputnik 1</button>
+	<button class="wrong-answer">Apollo 1</button>
+	<button class="wrong-answer">Sputnik 1</button>
 	<button id="correct-answer">Explorer 1</button>
 
 	<p id="result"></p>
 
 	<script type="text/javascript">
 		let correctAnswerButton=document.querySelector('#correct-answer')
-
 		let result=document.querySelector('#result')
+		let wrongAnswerButtons=document.querySelectorAll('.wrong-answer')
+		let originalColor=correctAnswerButton.style.background
 
 		correctAnswerButton.addEventListener('click',function(){
 			result.innerHTML='Correct answer!'
+			correctAnswerButton.style.background='green'
+		})
+		wrongAnswerButtons.forEach(function(wrongAnswerButton){
+			wrongAnswerButton.addEventListener('click', function(){
+				result.innerHTML='Wrong answer, try again?'
+				correctAnswerButton.style.background=originalColor
+			})
 		})
 
 	</script>
