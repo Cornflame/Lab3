@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+</head>
+
+<body>
+	<p>What was the first American satelite to reach orbit?</p>
+
+	<button>Apollo 1</button>
+	<button>Sputnik 1</button>
+	<button id="correct-answer">Explorer 1</button>
+
+	<p id="result"></p>
+
+	<script type="text/javascript">
+		let correctAnswerButton=document.querySelector('#correct-answer')
+
+		let result=document.querySelector('#result')
+
+		correctAnswerButton.addEventListener('click',function(){
+			result.innerHTML='Correct answer!'
+		})
+
+	</script>
+</body>
+</html>
